@@ -34,6 +34,17 @@ public class MachineComposite extends MachineComponent implements Observer {
 
     @Override
     public void update(Observable o, Object arg) {
+        MachineComponent mc = (MachineComponent) o;
+        if (mc.isBroken()) {
+            addComponentsBroken(mc);
+        } else {
+            deleteComponentBroken(mc);
+        }
+    }
 
+    private void addComponentsBroken(MachineComponent mc) {
+
+    }
+    private void deleteComponentBroken(MachineComponent mc) {
     }
 }
