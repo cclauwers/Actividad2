@@ -14,7 +14,7 @@ public class MachineComposite extends MachineComponent implements Observer {
         if(mc.isBroken()) {
             this.componetsBroken.add(mc);
             if (!this.broken && this.componetsBroken.size() == 1) {
-                this.notifyObservers();
+                notifyObservers();
             }
         }
      }
@@ -43,8 +43,21 @@ public class MachineComposite extends MachineComponent implements Observer {
     }
 
     private void addComponentsBroken(MachineComponent mc) {
+        if (!this.componetsBroken.contains(mc)){
+            this.componetsBroken.add(mc);
+        }
+
+        if (!isBroken()){
+            notifyObservers();
+        }
 
     }
     private void deleteComponentBroken(MachineComponent mc) {
+        if (this.componetsBroken.contains(mc)){
+            this.componetsBroken.remove(mc);
+        }
+        if (!isBroken()) {
+            notifyObservers();
+        }
     }
 }
