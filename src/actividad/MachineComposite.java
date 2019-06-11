@@ -10,6 +10,11 @@ import java.util.Observer;
 
 public class MachineComposite extends MachineComponent implements Observer {
     private List<MachineComponent> components = new ArrayList<>();
+
+    public List<MachineComponent> getComponetsBroken() {
+        return componetsBroken;
+    }
+
     public  List<MachineComponent> componetsBroken = new ArrayList<>();
 
     public void addComponent(MachineComponent mc) {
@@ -64,4 +69,6 @@ public class MachineComposite extends MachineComponent implements Observer {
             notifyObservers();
         }
     }
+
+
 }
