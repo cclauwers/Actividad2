@@ -1,3 +1,5 @@
+package actividad;
+
 public class Machine extends MachineComponent {
 
     private boolean broken = false;
